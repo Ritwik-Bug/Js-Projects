@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3</title>
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    color: white;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container */
+.center {
+    text-align: center;
+}
+
+/* Heading */
+#banner {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Clock box */
+#clock {
+    background-color: orange;
+    color: black;
+    font-size: 40px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    min-width: 250px;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+}
+</style>
+</head>
+<body>
+    <div class="center">
+        <div id="banner">
+            <span>Your Local Time</span>
+        </div>
+        <div id="clock"></div>
+    </div>
+</body>
+<script>
+    const clock=document.getElementById('clock')
+
+
+    setInterval(function(){
+        let date=new Date()
+        clock.innerHTML=date.toLocaleTimeString();
+    },1000)
+
+</script>
+</html>
