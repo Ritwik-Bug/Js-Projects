@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 5</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html,body{
+            height:100%;
+            width:100%;
+        }
+
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:lightblue;
+        }
+        #card{
+            border-radius: 10px;
+            height:400px;
+            width:300px;
+            background-color: white;
+            padding:30px;
+        }
+
+        #card img{
+            height:59%;
+            width:100%;
+            border-radius: 10px;
+            object-fit:cover;
+            object-position:center;
+        }
+
+        #card h1{
+            text-align:center;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        #card h5{
+            text-align:center;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #btn{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+        #card button{
+            border-radius: 5px;
+            background-color: pink;
+            color:black;
+            border:none;
+            padding: 12px 20px;
+            font-weight:700;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIay_AVuLLJX1-232tGPZJIz7epXtEMKtJGxnIFg2rZg&s=10" alt="Your Image">
+        <h1>ANGEL PRIYA</h1>
+        <h5>Stranger</h5>
+
+        <div id="btn"> 
+            <!-- <button id="Remove">
+                Remove Friend
+            </button>  -->
+           <button id="Add">
+            Add Friend
+           </button>
+        </div>
+    </div>
+    
+</body>
+<script>
+    const btn=document.querySelector("#Add")
+    const text=document.querySelector("h5")
+    const remove=document.querySelector("#Remove")
+
+    var flag=0;
+
+    btn.addEventListener("click",function(){
+        if(flag==0){
+        text.innerHTML="Stranger"
+        text.style.color="Red"
+        btn.innerHTML="Add Friend"
+        flag=1;
+        }
+        else{
+             text.innerHTML="Friends"
+            text.style.color="Green"
+            btn.innerHTML="Remove friend"
+            flag=0;
+        }
+    })
+
+
+</script>
+</html>

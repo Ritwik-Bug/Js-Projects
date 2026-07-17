@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 6</title>
+    <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html,body{
+            height:100%;
+            width:100%;
+        }
+        body{
+            background-color: lightgreen;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        #container{
+            height:300px;
+            width:350px;
+            border-radius: 15px;
+            position: relative;
+            background-color: white;
+            overflow:hidden;
+        }
+        #container img{
+            height:100%;
+            width:100%;
+            border-radius: 15px;
+            object-fit:cover;
+        }
+
+        #container i{
+            color:white;
+            font-size:70px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%) scale(0);
+            opacity:0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtLjkeFqt7mN6_oeiID-lTVdTHpZFl6SqiXry4kWMLO9dPR0Ahh9laxVQ&s=10" alt="Image">
+        <i class="ri-poker-hearts-fill"></i>
+    </div>
+
+</body>
+<script>
+    const a=document.querySelector("#container")
+    var love=document.querySelector("i")
+
+    a.addEventListener("dblclick",function(){
+        love.style.transform='translate(-50%,-50%) scale(1)'
+        love.style.opacity=0.8
+
+
+        // DELAY
+    setTimeout(function(){
+        love.style.opacity=0
+    },1000)
+
+    setTimeout(function(){
+        love.style.opacity='translate(-50%,-50%) scale(0)'
+    },2000)
+    })
+
+ 
+</script>
+</html>
