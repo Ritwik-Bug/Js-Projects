@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Story UI</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#222;
+}
+
+#phone{
+    width:320px;
+    height:600px;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 0 30px rgba(0,0,0,0.4);
+     position:relative;
+}
+
+#stories{
+    height:120px;
+    width:100%;
+    padding:15px;
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    border-bottom:1px solid #ddd;
+}
+
+#stories::-webkit-scrollbar{
+    display:none;
+}
+
+.story{
+    flex-shrink:0;
+    text-align:center;
+}
+
+.story-ring{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    padding:3px;
+    background:linear-gradient(
+        45deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+    );
+}
+
+.story-ring img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid white;
+}
+
+.story p{
+    font-size:12px;
+    margin-top:5px;
+}
+
+#full-screen{
+    height:100%;
+    width:100%;
+    position:absolute;
+    display:none;
+    background-size:cover;
+    background-position:center;
+    z-index:100;
+}
+
+</style>
+</head>
+<body>
+    <div id="phone">
+        <div id="full-screen"></div>
+        <div id="stories"></div>
+    </div>
+</body>
+<script>
+    var arr = [
+    {
+        dp: "https://picsum.photos/id/1011/200",
+        story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQVjoVdT3yF14zphOTLEHqpGx514xZwOwOpF6Gp9HhDg&s=10"
+    },
+    {
+        dp: "https://picsum.photos/id/1025/200",
+        story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR8zYpKFLV8nXwR0B8bThWcxDQdPX7EB7BEvP-pSJpOg&s=10"
+    },
+    {
+        dp: "https://picsum.photos/id/1005/200",
+        story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmuEOC33drdAH3cMz6uK2uKGMdBZNsFpwNEQXXwa6RuA&s=10"
+    },
+    {
+        dp: "https://picsum.photos/id/1001/200",
+        story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHBcLYtl9HsxZPhtG1LhNQaTUCrhFmLp_iqJFyrDnhJA&s=10"
+    }
+];
+
+var stories = document.querySelector("#stories");
+var fullscreen = document.querySelector("#full-screen");
+
+var clutter = "";
+
+arr.forEach(function(elem, idx) {
+    clutter += `
+    <div class="story">
+        <div class="story-ring">
+            <img id="${idx}" src="${elem.dp}" alt="">
+        </div>
+    </div>
+    `;
+});
+
+stories.innerHTML = clutter;
+
+stories.addEventListener("click", function(dets) {
+
+    if (dets.target.tagName !== "IMG") return;
+
+    var story = arr[dets.target.id];
+
+    fullscreen.style.display = "block";
+    fullscreen.style.backgroundImage = `url(${story.story})`;
+
+    setTimeout(function() {
+        fullscreen.style.display = "none";
+    }, 3000);
+});
+</script>
+</html>
