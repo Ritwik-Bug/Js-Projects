@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 8</title>
+    <style>
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        color:white
+    }
+    html,body{
+            height:100%;
+            width:100%;
+        }
+        #main{
+            height:100%;
+            width:100%;
+            background-color:#111;
+            position:relative;
+        }
+
+        .elem{
+            height:100px;
+            width:100%;
+            /* background-color:red; */
+            border-bottom: 2px solid white;
+            display: flex;
+            align-items:center;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .elem h1{
+            font-size:5vw;
+            position: relative;
+            z-index:9;
+            mix-blend-mode: difference;
+        }
+        .elem img{
+            height:100px;
+            width:100px;
+            object-fit:cover;
+            object-position: center;
+            border-radius: 50%;
+            position: absolute;
+            transform:translate(-50%,-50%);
+            opacity:0;
+            transition: all linear 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="elem1" class="elem">
+            <h1>OPEN</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUK5OrFM-g7-yxDneiOLZeV2gatZdoE0QB7iAV9NKTAA&s=10" alt="">
+        </div>
+        <div id="elem2" class="elem">
+            <h1>CLOSE</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBMdpkS_FRsEODjsLPqyPFvZNl9w9Ej3_RbO-e0jWj_Q&s=10" alt="">
+
+        </div>
+        <div id="elem3" class="elem">
+            <h1>OKAY H</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIR6qGX4JTrsM1oKH_OTaxrCMVcOATnPAtYAORZRq_g&s=10" alt="">
+        </div>
+    </div>
+</body>
+    <script>
+
+        document.querySelectorAll(".elem").forEach(elem => {
+    const img = elem.querySelector("img");
+
+    elem.addEventListener("mousemove", (e) => {
+        img.style.left = e.offsetX + "px";
+        img.style.top = e.offsetY + "px";
+    });
+
+    elem.addEventListener("mouseenter", () => {
+        img.style.opacity = 1;
+    });
+
+    elem.addEventListener("mouseleave", () => {
+        img.style.opacity = 0;
+    });
+});
+
+    </script>
+</html>
