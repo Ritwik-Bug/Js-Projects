@@ -5,6 +5,7 @@
 }
 :root{
     --bg-primary-color:#0c0c0c;
+    --bg-fill-color:#fdfdfc;
 
     --text-primary-color:#f0f0f0;
     --border-primary-color:#333333;
@@ -71,5 +72,8 @@ section .infos{
     height:30px;
     border:1px solid var(--border-primary-color);
      
+}
+.fill{
+    background-color: var(--bg-fill-color);
 }
 
